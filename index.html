@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>垃圾分类小游戏 - 首页</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="home-container">
+        <h1>垃圾分类小游戏</h1>
+        <p class="intro-text">欢迎来到垃圾分类小游戏，挑战你的分类能力！</p>
+        <p class="detail-text">1.点击“开始挑战”即可开启一场垃圾分类小游戏。<br>2.在开始游戏前，也可以先通过“垃圾分类小知识”增加知识储备！<br>3.在“我的成就”面板中可以查看自己目前的累积成绩。</p>
+        
+        <div class="button-container">
+            <!-- "开始挑战" 按钮 -->
+            <button class="home-button" id="startChallengeButton">开始挑战</button>
+            <button class="home-button" id="knowledge-button" onclick="window.location.href='knowledge.html'">垃圾分类小知识</button>
+            <button class="home-button" id="achievements-button">我的成就</button>
+        </div>
+
+    </div>
+
+<!-- 弹窗背景 -->
+<div id="rulesModal" class="modal" style="display: none;">
+    <!-- 弹窗内容 -->
+    <div class="modal-content">
+        <p>欢迎来到垃圾分类挑战！</p>
+        <ul>
+            <li>游戏目标：将垃圾拖动到正确的垃圾桶中。</li>
+            <li>游戏规则：<br>1. 挑战时长共计180秒，每个垃圾图片有5秒的停留时间；<br>2. 错误归类或不归类均会扣除5秒时间；<br>3. 倒计时结束或累积5次归类错误则游戏结束；<br>4. 垃圾归类错误时会跳出弹窗提示并纠正，此时游戏会暂停，你可以放心阅读弹窗内容。</li>
+            <li style="text-align: center">点击“了解了！”按钮，准备开始吧！</li>
+        </ul>
+        <button id="startGameButton">了解了！</button>
+    </div>
+</div>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

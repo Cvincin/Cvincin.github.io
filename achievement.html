@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的成就</title>
+    <link rel="stylesheet" href="achievement.css">
+</head>
+<body>
+    <div class="achievement-container">
+        <h1>我的成就</h1>
+        <div class="achievement-details">
+            <p>总积分: <span id="total-score">0</span></p>
+            <p>正确分类 - 有害垃圾: <span id="correct-hazardous">0</span>/10
+                <img id="hazardous-badge" class="badge" src="images/badges/hazardous_badge.png" alt="有害垃圾徽章">
+                <span class="badge-tooltip" id="hazardous-tooltip">达成10次正确分类时，此徽章会点亮</span>
+            </p>
+            <div class="progress-bar-container">
+                <div id="hazardous-progress-bar" class="progress-bar"></div>
+            </div>
+            <p style="visibility: hidden;">错误分类 - 有害垃圾: <span id="incorrect-hazardous">0</span></p>
+            <p>正确分类 - 可回收物: <span id="correct-recyclable">0</span>/10
+                <img id="recyclable-badge" class="badge" src="images/badges/recyclable_badge.png" alt="可回收物徽章">
+                <span class="badge-tooltip" id="recyclable-tooltip">达成10次正确分类时，此徽章会点亮</span>
+            </p>
+            <div class="progress-bar-container">
+                <div id="recyclable-progress-bar" class="progress-bar"></div>
+            </div>
+            <p style="visibility: hidden;">错误分类 - 可回收物: <span id="incorrect-recyclable">0</span></p>
+            <p>正确分类 - 厨余垃圾: <span id="correct-kitchen">0</span>/10
+                <img id="kitchen-badge" class="badge" src="images/badges/kitchen_badge.png" alt="厨余垃圾徽章">
+                <span class="badge-tooltip" id="kitchen-tooltip">达成10次正确分类时，此徽章会点亮</span>
+            </p>
+            <div class="progress-bar-container">
+                <div id="kitchen-progress-bar" class="progress-bar"></div>
+            </div>
+            <p style="visibility: hidden;">错误分类 - 厨余垃圾: <span id="incorrect-kitchen">0</span></p>
+            <p>正确分类 - 其他垃圾: <span id="correct-other">0</span>/10
+                <img id="other-badge" class="badge" src="images/badges/other_badge.png" alt="其他垃圾徽章">
+                <span class="badge-tooltip" id="other-tooltip">达成10次正确分类时，此徽章会点亮</span>
+            </p>
+            <div class="progress-bar-container">
+                <div id="other-progress-bar" class="progress-bar"></div>
+            </div>
+            <p style="visibility: hidden;">错误分类 - 其他垃圾: <span id="incorrect-other">0</span></p>
+        </div>
+        <button id="back-to-home">返回首页</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <p id="popup-message"></p>
+        </div>
+    </div>
+
+    <script src="achievement.js"></script>
+</body>
+</html>

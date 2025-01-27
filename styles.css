@@ -1,0 +1,290 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* 防止页面滚动 */
+}
+
+.game-container {
+    background-image: url('images/background.jpg'); /* 设置背景图 */
+    background-size: cover; /* 让背景图覆盖整个容器 */
+    background-position: center; /* 居中显示 */
+    background-repeat: no-repeat; /* 防止背景图重复 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative; /* 使右上角按钮定位更方便 */
+}
+
+
+h1 {
+    color: #333;
+}
+
+.timer-container {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -20px;
+}
+
+.score-container {
+    font-size: 24px;
+    margin-top: -20px;  /* 调整得分区域向上移动 */
+}
+
+.item-container {
+    position: relative; /* 确保子元素的绝对定位相对于此容器 */
+    width: 80%; /* 调整物品容器宽度，以更好地适应手机屏幕 */
+    height: 100px;
+    border: none; /* 去掉虚线边框 */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /*transition: transform 0.2s ease-in-out;*/
+}
+
+
+.bin-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* 允许垃圾桶换行显示 */
+}
+
+.bin {
+    width: 120px;
+    height: 120px;
+    border: none; /* 去掉虚线边框 */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s ease-in-out;
+    flex: 1 0 40%; /* 让垃圾桶在手机端可以占据一定比例的宽度，并且可以换行 */
+}
+
+.bin-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bin img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.bin.correct {
+    border-color: #4CAF50;
+    animation: correctFlash 0.5s ease-in-out;
+}
+
+.bin.incorrect {
+    border-color: #F44336;
+    animation: incorrectFlash 0.5s ease-in-out;
+}
+
+@keyframes correctFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes incorrectFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* 弹窗背景 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* 背景颜色更深 */
+    backdrop-filter: blur(5px); /* 背景模糊效果 */
+    animation: fadeIn 0.3s ease-out; /* 弹窗渐入动画 */
+}
+
+/* 弹窗内容 */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 12px; /* 圆角 */
+    text-align: center;
+    animation: bounceIn 0.5s ease-out; /* 弹窗进场动画 */
+}
+
+/* 弹窗按钮 */
+.modal button {
+    margin: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #4CAF50, #45a049); /* 渐变背景 */
+    border: none;
+    border-radius: 8px; /* 圆角按钮 */
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* 按钮悬停效果 */
+.modal button:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 按钮点击效果 */
+.modal button:active {
+    transform: scale(0.98);
+}
+
+/* 弹窗渐入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 弹窗进场动画 */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 弹窗内文字样式 */
+.modal-content p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* 自定义弹窗关闭按钮（如果需要） */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-item-image {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto 10px; /* 图片居中并与文本间隔 */
+}
+
+
+/* 确保垃圾图片统一大小 */
+.item-image {
+    width: 100px;  /* 控制宽度 */
+    height: 100px; /* 控制高度 */
+    object-fit: contain; /* 保持图片的长宽比 */
+    margin: 0 auto; /* 图片居中 */
+    display: block; /* 确保图片以块级元素显示 */
+    transform: translateY(-30px); /* 向上移动 10px */
+}
+
+
+/* 为物品名称添加样式 */
+.item-name {
+    font-size: 16px;  /* 设置字号 */
+    font-weight: bold;  /* 设置字体加粗 */
+    color: #333;  /* 设置颜色 */
+    margin-bottom: 10px;  /* 为图片留出空隙 */
+    position: absolute;  /* 确保垃圾名称与图片分开 */
+    top: 75%;  /* 使垃圾名称显示在图片下方 */
+    left: 50%;
+    transform: translateX(-50%); /* 水平居中 */
+    pointer-events: none; /* 确保名称不会影响拖拽事件 */
+}
+
+
+.music-toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+.music-toggle-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.music-toggle-button img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* 用于显示+1符号的样式，居中显示 */
+.plus-one-global {
+    position: fixed;  /* 固定定位，确保它在屏幕上 */
+    top: 25%; 
+    left: 60%;
+    transform: translate(-50%, -50%);  /* 使用transform调整精确居中 */
+    font-size: 50px;
+    color: #4CAF50;  /* 绿色 */
+    font-weight: bold;
+    opacity: 0;  /* 初始透明度为0 */
+    transition: opacity 0.5s ease-in-out;  /* 设置淡入淡出效果 */
+    z-index: 1000;  /* 确保它显示在其他元素的上面 */
+}
+
+/* 淡入效果 */
+.plus-one-global.show {
+    opacity: 1;  /* 让其完全显示 */
+}

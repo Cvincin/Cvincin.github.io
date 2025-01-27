@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>垃圾分类小知识</title>
+    <link rel="stylesheet" href="knowledge.css">
+</head>
+<body>
+    <div class="knowledge-container">
+        <h1>垃圾分类小知识</h1>
+        
+        <div class="category-buttons">
+            <button class="category-btn" data-category="hazardous">有害垃圾</button>
+            <button class="category-btn" data-category="recyclable">可回收物</button>
+            <button class="category-btn" data-category="wet">厨余垃圾</button>
+            <button class="category-btn" data-category="dry">其他垃圾</button>
+        </div>
+        
+        <table id="knowledge-table">
+            <thead>
+                <tr>
+                    <th>垃圾名称</th>
+                    <th>垃圾介绍</th>
+                </tr>
+            </thead>
+            <tbody id="knowledge-body">
+                <!-- 初始空表格，点击按钮后填充内容 -->
+            </tbody>
+        </table>
+
+        <div class="back-button">
+            <button id="back-home">返回首页</button>
+        </div>
+    </div>
+
+    <script src="knowledge.js"></script>
+</body>
+</html>

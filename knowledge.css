@@ -1,0 +1,83 @@
+/* knowledge.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.knowledge-container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.category-buttons {
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.category-btn:hover {
+    background-color: #45a049;
+}
+
+#knowledge-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#knowledge-table th, #knowledge-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#knowledge-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#knowledge-body {
+    font-size: 0.9rem;
+}
+
+.back-button {
+    margin-top: 30px;
+}
+
+#back-home {
+    background-color: #FF5722;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#back-home:hover {
+    background-color: #e64a19;
+}
